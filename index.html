@@ -175,6 +175,16 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 #galleryPosition{font-size:12px;color:#687970}
 @media(max-width:600px){.gallery-results{width:100%;margin-left:0}.gallery-filter{font-size:12px;padding:8px 10px}.gallery-modal-head{padding:13px}.gallery-modal-head h3{font-size:16px}.gallery-modal-foot{padding:10px 13px 15px}}
 @media(prefers-reduced-motion:reduce){.gallery-filter{transition:none}}
+
+/* V25: direct research-inquiry submission */
+.form-honeypot{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.inquiry-consent{display:flex;align-items:flex-start;gap:11px;font-size:12px;line-height:1.7;color:var(--muted);margin:14px 0 22px;cursor:pointer}
+.inquiry-consent input{width:17px;height:17px;flex:none;margin-top:3px;accent-color:var(--green)}
+.inquiry-status{padding:12px 14px;border:1px solid var(--line);background:var(--soft);color:var(--ink);font-size:12px;line-height:1.7;margin-top:15px}
+.inquiry-status-success{border-color:#9ec6ac;background:#f0f9f1;color:#174d2a}
+.inquiry-status-error{border-color:#e0adad;background:#fff4f4;color:#8c2929}
+#inquirySubmit:disabled{opacity:.65;cursor:wait}
+.form .fineprint a{text-decoration:underline;text-underline-offset:2px}
 </style><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchOrganization","name":"Berkant Kayan Research Group","url":"https://berkantkayan.com/","description":"Independent academic research group website featuring analytical separations, subcritical water chemistry, sustainable carbon materials and functional composites.","member":[{"@type":"Person","name":"Berkant Kayan"},{"@type":"Person","name":"Sema Akay"},{"@type":"Person","name":"Ceren Tekerbaş"},{"@type":"Person","name":"Khalid Hussain"}],"sameAs":["https://scholar.google.com/citations?user=wc3_RvAAAAAJ","https://www.linkedin.com/in/berkant-kayan-b68761153/"]}</script><meta content="Berkant Kayan Research Group" property="og:title"/><meta content="website" property="og:type"/><meta content="https://berkantkayan.com/" property="og:url"/><meta content="Research in separation science, subcritical water technologies, sustainable carbon materials and functional composites." property="og:description"/><meta content="light" name="color-scheme"/><meta content="16" name="site-version"/><style>/* V19: Unaltered original photograph supplied by the group; no image generation. */
 .hero-office-photo{aspect-ratio:4/3;overflow:hidden;background:#f0f0ec}
 .hero-office-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
@@ -253,9 +263,60 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 <article class="highlight-item"><div class="highlight-meta"><span>2026</span><span>Academic mobility</span></div><h3>Scientific exchange at Taizhou University</h3><p>International academic activity including a presentation on subcritical water chromatography.</p><a href="https://kimya.aksaray.edu.tr/prof--dr--berkant-kayandan-erasmus--ka171-kapsamindataizhou-universitesi-neziyaret" rel="noopener noreferrer" target="_blank">University announcement ↗</a></article>
 <article class="highlight-item"><div class="highlight-meta"><span>2025</span><span>Research project record</span></div><h3>ZnO-modified biochar for analytical applications</h3><p>University-documented research on fruit-peel-derived carbon composites and vanillin determination.</p><a href="#projects">Explore the project ↗</a></article>
 </div>
-</div></section><section class="section collab-section" id="collaborate"><div class="container collab-grid"><div><span class="section-no">11 / Collaborate</span><h2>Work with our group.</h2><p class="collab-intro">We welcome specific, feasible proposals from researchers, academic departments and prospective exchange partners. Share your research question, relevant expertise and a realistic idea for working together.</p><ul class="collab-topics"><li>Joint research and project development</li><li>Erasmus+ teaching and research mobility</li><li>Visiting researchers and graduate exchanges</li><li>Method development and shared studies</li><li>Invited lectures and scientific seminars</li></ul><div class="proposal-guidance"><span class="guidance-eyebrow">Preparing an inquiry</span><h3>What to include</h3><ol><li><strong>Research fit.</strong> Describe how your proposal connects with one of our research themes.</li><li><strong>Contribution.</strong> Outline your expertise, analytical methods or facilities.</li><li><strong>Practical scope.</strong> Indicate a proposed duration, funding route or mobility scheme, where relevant.</li></ol><p>Initial inquiries are reviewed individually. A message is not a guarantee of supervision, visiting placement or project approval.</p></div></div><form class="form" id="inquiry"><h3>Research inquiry</h3><p class="form-intro">Use this form to draft an email to the group. Nothing is stored or submitted by this website.</p><div class="form-grid"><div class="field"><label for="personName">Full name *</label><input autocomplete="name" id="personName" maxlength="120" required=""/></div><div class="field"><label for="personEmail">Email address *</label><input autocomplete="email" id="personEmail" maxlength="160" required="" type="email"/></div></div><div class="field"><label for="institution">Institution *</label><input autocomplete="organization" id="institution" maxlength="160" required=""/></div><div class="field"><label for="kind">Collaboration type *</label><select id="kind" required=""><option value="">Choose an option</option><option>Joint research project</option><option>Erasmus+ / academic mobility</option><option>Visiting researcher</option><option>Graduate student exchange</option><option>Analytical method or materials collaboration</option><option>Seminar / invited lecture</option><option>Other</option></select></div><div class="field"><label for="message">Brief description *</label><textarea id="message" maxlength="2200" placeholder="Your research interests and proposed collaboration" required=""></textarea></div><button class="btn" type="submit">Prepare email inquiry ↗</button><p class="fineprint">Your email application will open with a drafted message. You must review and send it yourself. This is not an online submission portal.</p><p class="form-alt">Prefer your own email client? Write directly to <a href="mailto:berkantkayan@aksaray.edu.tr">berkantkayan@aksaray.edu.tr</a>.</p></form></div></section>
+</div></section><section class="section collab-section" id="collaborate"><div class="container collab-grid"><div><span class="section-no">11 / Collaborate</span><h2>Work with our group.</h2><p class="collab-intro">We welcome specific, feasible proposals from researchers, academic departments and prospective exchange partners. Share your research question, relevant expertise and a realistic idea for working together.</p><ul class="collab-topics"><li>Joint research and project development</li><li>Erasmus+ teaching and research mobility</li><li>Visiting researchers and graduate exchanges</li><li>Method development and shared studies</li><li>Invited lectures and scientific seminars</li></ul><div class="proposal-guidance"><span class="guidance-eyebrow">Preparing an inquiry</span><h3>What to include</h3><ol><li><strong>Research fit.</strong> Describe how your proposal connects with one of our research themes.</li><li><strong>Contribution.</strong> Outline your expertise, analytical methods or facilities.</li><li><strong>Practical scope.</strong> Indicate a proposed duration, funding route or mobility scheme, where relevant.</li></ol><p>Initial inquiries are reviewed individually. A message is not a guarantee of supervision, visiting placement or project approval.</p></div></div><form class="form" id="inquiry" action="https://formsubmit.co/berkantkayan@aksaray.edu.tr" method="POST" accept-charset="UTF-8">
+<h3>Research inquiry</h3>
+<p class="form-intro">Send a research collaboration inquiry directly to our group. Please include a specific research question or proposal.</p>
+<input type="hidden" name="_subject" value="New research collaboration inquiry — Berkant Kayan Research Group">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="true">
+<div class="form-honeypot" aria-hidden="true"><label for="inquiryWebsite">Leave this field blank</label><input id="inquiryWebsite" name="_honey" tabindex="-1" autocomplete="off"></div>
+<div class="form-grid">
+ <div class="field"><label for="personName">Full name *</label><input autocomplete="name" id="personName" name="name" maxlength="120" required></div>
+ <div class="field"><label for="personEmail">Email address *</label><input autocomplete="email" id="personEmail" name="email" maxlength="160" required type="email"></div>
+</div>
+<div class="field"><label for="institution">Institution *</label><input autocomplete="organization" id="institution" name="institution" maxlength="160" required></div>
+<div class="field"><label for="kind">Collaboration type *</label><select id="kind" name="collaboration_type" required><option value="">Choose an option</option><option>Joint research project</option><option>Erasmus+ / academic mobility</option><option>Visiting researcher</option><option>Graduate student exchange</option><option>Analytical method or materials collaboration</option><option>Seminar / invited lecture</option><option>Other</option></select></div>
+<div class="field"><label for="message">Brief description *</label><textarea id="message" name="message" maxlength="2200" placeholder="Your research interests and proposed collaboration" required></textarea></div>
+<label class="inquiry-consent"><input id="inquiryConsent" name="consent" type="checkbox" value="Yes" required><span>I agree that the information I provide will be processed by the third-party FormSubmit service and emailed to the research group for the purpose of responding to my inquiry. Please do not include sensitive or confidential research information. *</span></label>
+<button class="btn" id="inquirySubmit" type="submit">Submit inquiry ↗</button>
+<p id="inquiryStatus" class="inquiry-status" role="status" aria-live="polite" hidden></p>
+<p class="fineprint">Your information is sent through <a href="https://formsubmit.co" target="_blank" rel="noopener noreferrer">FormSubmit</a>, an external form delivery service, to <strong>berkantkayan@aksaray.edu.tr</strong>. FormSubmit states that it retains submissions for 30 days. This website does not keep its own submissions database. A first-time form requires the recipient to activate email delivery.</p>
+<p class="form-alt">Prefer to use your own email application? Contact <a href="mailto:berkantkayan@aksaray.edu.tr">berkantkayan@aksaray.edu.tr</a>.</p>
+</form></div></section>
 </main><footer class="footer" id="contact"><div class="container"><div class="footer-inner"><div><strong>Berkant Kayan Research Group</strong><p>Independent academic research website<br/>Academic affiliation: Aksaray University, Türkiye</p><p><a href="mailto:berkantkayan@aksaray.edu.tr">berkantkayan@aksaray.edu.tr</a></p></div><div class="footer-links"><a href="https://scholar.google.com/citations?user=wc3_RvAAAAAJ&amp;hl=en" rel="noopener noreferrer" target="_blank">Scholar</a><a href="https://orcid.org/0000-0002-9892-5284" rel="noopener noreferrer" target="_blank">ORCID</a><a href="https://www.linkedin.com/in/berkant-kayan-b68761153/" rel="noopener noreferrer" target="_blank">LinkedIn</a><a href="#home">Top ↑</a></div></div><div class="footer-bottom">© <span id="year">2026</span> Berkant Kayan Research Group · Independently maintained; not an official university website.</div></div></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();const menu=document.getElementById('menu'),nav=document.getElementById('navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));document.getElementById('inquiry').addEventListener('submit',e=>{e.preventDefault();const g=id=>document.getElementById(id).value.trim();const subject='Research collaboration inquiry — '+g('kind');const body='Name: '+g('personName')+'\nEmail: '+g('personEmail')+'\nInstitution: '+g('institution')+'\nInterest: '+g('kind')+'\n\nProposal:\n'+g('message');window.location.href='mailto:berkantkayan@aksaray.edu.tr?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);});
+<script>document.getElementById('year').textContent=new Date().getFullYear();const menu=document.getElementById('menu'),nav=document.getElementById('navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));// Send inquiries through a real form backend. Native POST remains available without JavaScript.
+const inquiryForm=document.getElementById('inquiry');
+const inquiryButton=document.getElementById('inquirySubmit');
+const inquiryStatus=document.getElementById('inquiryStatus');
+inquiryForm.addEventListener('submit', async event=>{
+ event.preventDefault();
+ if(!inquiryForm.reportValidity()) return;
+ inquiryButton.disabled=true;
+ inquiryButton.textContent='Sending inquiry…';
+ inquiryStatus.hidden=false;
+ inquiryStatus.className='inquiry-status';
+ inquiryStatus.textContent='Submitting your inquiry securely…';
+ try {
+  const formData=new FormData(inquiryForm);
+  const payload=Object.fromEntries(formData.entries());
+  const response=await fetch('https://formsubmit.co/ajax/berkantkayan@aksaray.edu.tr',{
+   method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+   body:JSON.stringify(payload)
+  });
+  const result=await response.json();
+  const accepted=result.success===true || result.success==='true';
+  if(!response.ok || !accepted) throw new Error(typeof result.message==='string'?result.message:'The delivery service did not accept this request.');
+  inquiryStatus.className='inquiry-status inquiry-status-success';
+  inquiryStatus.textContent='Your inquiry was accepted by the form service. Email delivery is subject to the research group’s FormSubmit activation and mail filtering. Thank you for contacting us.';
+  inquiryForm.reset();
+ }catch(error){
+  inquiryStatus.className='inquiry-status inquiry-status-error';
+  inquiryStatus.textContent='We could not confirm the submission. Please try again or contact berkantkayan@aksaray.edu.tr directly. '+(error && error.message ? error.message : '');
+ }finally{
+  inquiryButton.disabled=false;
+  inquiryButton.textContent='Submit inquiry ↗';
+ }
+});
 // Browse the selected bibliography without loading external services.
 const publicationFilterButtons=document.querySelectorAll('.pub-filter');
 const publicationEntries=document.querySelectorAll('.pub-list .pub[data-topic]');
