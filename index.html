@@ -284,18 +284,16 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 <p class="form-alt">Prefer to use your own email application? Contact <a href="mailto:berkantkayan@aksaray.edu.tr">berkantkayan@aksaray.edu.tr</a>.</p>
 </form></div></section>
 </main><footer class="footer" id="contact"><div class="container"><div class="footer-inner"><div><strong>Berkant Kayan Research Group</strong><p>Independent academic research website<br/>Academic affiliation: Aksaray University, Türkiye</p><p><a href="mailto:berkantkayan@aksaray.edu.tr">berkantkayan@aksaray.edu.tr</a></p></div><div class="footer-links"><a href="https://scholar.google.com/citations?user=wc3_RvAAAAAJ&amp;hl=en" rel="noopener noreferrer" target="_blank">Scholar</a><a href="https://orcid.org/0000-0002-9892-5284" rel="noopener noreferrer" target="_blank">ORCID</a><a href="https://www.linkedin.com/in/berkant-kayan-b68761153/" rel="noopener noreferrer" target="_blank">LinkedIn</a><a href="#home">Top ↑</a></div></div><div class="footer-bottom">© <span id="year">2026</span> Berkant Kayan Research Group · Independently maintained; not an official university website.</div></div></footer>
-<script src="content.js"></script>
 <script>
-/* V27 editable scientific content; preserve original HTML if content.js is unavailable. */
+/* V28 — Pages CMS-managed JSON. If loading fails, keep the original HTML visible. */
 (() => {
-  const data=window.RESEARCH_CONTENT;
-  if (!data) return;
   const safeUrl=value=>typeof value==='string' && (/^https:\/\//i.test(value)||/^#[a-z0-9-]+$/i.test(value)) ? value : null;
   const make=(tag,cls,value)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(value!==undefined)n.textContent=String(value);return n;};
-  const publicationList=document.querySelector('#publications .pub-list');
-  if (publicationList && Array.isArray(data.publications) && data.publications.length) {
+  function renderPublications(items){
+    const list=document.querySelector('#publications .pub-list');
+    if(!list||!Array.isArray(items)||!items.length)return;
     const fragment=document.createDocumentFragment();
-    for(const item of data.publications){
+    for(const item of items){
       if(!item || !item.title || !['water','carbon','materials'].includes(item.topic))continue;
       const article=make('article','pub');article.dataset.topic=item.topic;
       article.append(make('time',null,item.year||''));
@@ -304,14 +302,22 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
       if(url){const a=make('a','doi','DOI ↗');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label','View DOI for '+item.title);article.append(a);}
       fragment.append(article);
     }
-    if(fragment.childElementCount){publicationList.replaceChildren(fragment);}
-    const count=document.getElementById('publicationCount');
-    if(count)count.textContent=`Showing ${publicationList.querySelectorAll('.pub').length} selected publications`;
+    if(fragment.childElementCount){
+      list.replaceChildren(fragment);
+      // Respect the currently selected topic when JSON finishes loading.
+      const selected=document.querySelector('.pub-filter.is-active');
+      const category=selected?.dataset.filter||'all';
+      let shown=0;
+      list.querySelectorAll('.pub[data-topic]').forEach(entry=>{entry.hidden=category!=='all'&&entry.dataset.topic!==category;if(!entry.hidden)shown++;});
+      const count=document.getElementById('publicationCount');
+      if(count)count.textContent=`Showing ${shown} selected publication${shown===1?'':'s'}`;
+    }
   }
-  const studiesList=document.querySelector('#projects .study-list');
-  if(studiesList && Array.isArray(data.studies) && data.studies.length){
+  function renderStudies(items){
+    const list=document.querySelector('#projects .study-list');
+    if(!list||!Array.isArray(items)||!items.length)return;
     const fragment=document.createDocumentFragment();
-    for(const item of data.studies){
+    for(const item of items){
       if(!item||!item.title)continue;
       const article=make('article','study-card');
       article.append(make('span','study-index',item.category||''),make('h4',null,item.title),make('p',null,item.description||''));
@@ -320,8 +326,14 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
       else if(item.note)article.append(make('span','study-note',item.note));
       fragment.append(article);
     }
-    if(fragment.childElementCount)studiesList.replaceChildren(fragment);
+    if(fragment.childElementCount)list.replaceChildren(fragment);
   }
+  async function load(path,render){
+    try { const response=await fetch(path,{cache:'no-cache'}); if(!response.ok)throw Error('HTTP '+response.status);render(await response.json()); }
+    catch(error){console.warn('Using built-in content fallback for '+path,error);}
+  }
+  load('publications.json',renderPublications);
+  load('studies.json',renderStudies);
 })();
 </script>
 <script>document.getElementById('year').textContent=new Date().getFullYear();const menu=document.getElementById('menu'),nav=document.getElementById('navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));// Send inquiries through a real form backend. Native POST remains available without JavaScript.
@@ -329,7 +341,6 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 // FormSubmit shows its own activation/validation result and emails after recipient confirmation.
 // Browse the selected bibliography without loading external services.
 const publicationFilterButtons=document.querySelectorAll('.pub-filter');
-const publicationEntries=document.querySelectorAll('.pub-list .pub[data-topic]');
 const publicationCount=document.getElementById('publicationCount');
 publicationFilterButtons.forEach(button=>button.addEventListener('click',()=>{
  const category=button.dataset.filter;
@@ -339,7 +350,7 @@ publicationFilterButtons.forEach(button=>button.addEventListener('click',()=>{
   other.setAttribute('aria-pressed',String(selected));
  });
  let shown=0;
- publicationEntries.forEach(entry=>{
+ document.querySelectorAll('.pub-list .pub[data-topic]').forEach(entry=>{
   const visible=category==='all'||entry.dataset.topic===category;
   entry.hidden=!visible;
   if(visible)shown++;

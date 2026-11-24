@@ -1,0 +1,34 @@
+[
+  {
+    "category": "01 / SEPARATION SCIENCE",
+    "title": "Subcritical water chromatography",
+    "description": "Practical temperature windows, aqueous mobile-phase behavior, analyte stability, stationary-phase durability and instrument adaptation for high-temperature separations.",
+    "linkText": "Related scientific publications ↗",
+    "linkUrl": "#publications",
+    "note": ""
+  },
+  {
+    "category": "02 / FUNCTIONAL MATERIALS",
+    "title": "PMMA-based nano-chitosan / zirconia composites",
+    "description": "Preparation and dispersion of nano-chitosan and ZrO₂ in PMMA-based hybrid materials, with emphasis on reproducible processing and material characterization.",
+    "linkText": "",
+    "linkUrl": "",
+    "note": "Research topic · project metadata to be added"
+  },
+  {
+    "category": "03 / SUSTAINABLE CARBON",
+    "title": "Biochar and hydrochar development",
+    "description": "Biomass-to-carbon conversion, surface and structural characterization, and applications in adsorption and functional material development.",
+    "linkText": "Related scientific publications ↗",
+    "linkUrl": "#publications",
+    "note": ""
+  },
+  {
+    "category": "04 / COLLABORATIVE RESEARCH",
+    "title": "Carbon-supported functional materials",
+    "description": "Interdisciplinary studies of carbon-based supports and composite materials, connecting synthetic preparation with characterization and application-focused testing.",
+    "linkText": "",
+    "linkUrl": "",
+    "note": "Collaborative research theme"
+  }
+]
