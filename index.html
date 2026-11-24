@@ -284,6 +284,46 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 <p class="form-alt">Prefer to use your own email application? Contact <a href="mailto:berkantkayan@aksaray.edu.tr">berkantkayan@aksaray.edu.tr</a>.</p>
 </form></div></section>
 </main><footer class="footer" id="contact"><div class="container"><div class="footer-inner"><div><strong>Berkant Kayan Research Group</strong><p>Independent academic research website<br/>Academic affiliation: Aksaray University, Türkiye</p><p><a href="mailto:berkantkayan@aksaray.edu.tr">berkantkayan@aksaray.edu.tr</a></p></div><div class="footer-links"><a href="https://scholar.google.com/citations?user=wc3_RvAAAAAJ&amp;hl=en" rel="noopener noreferrer" target="_blank">Scholar</a><a href="https://orcid.org/0000-0002-9892-5284" rel="noopener noreferrer" target="_blank">ORCID</a><a href="https://www.linkedin.com/in/berkant-kayan-b68761153/" rel="noopener noreferrer" target="_blank">LinkedIn</a><a href="#home">Top ↑</a></div></div><div class="footer-bottom">© <span id="year">2026</span> Berkant Kayan Research Group · Independently maintained; not an official university website.</div></div></footer>
+<script src="content.js"></script>
+<script>
+/* V27 editable scientific content; preserve original HTML if content.js is unavailable. */
+(() => {
+  const data=window.RESEARCH_CONTENT;
+  if (!data) return;
+  const safeUrl=value=>typeof value==='string' && (/^https:\/\//i.test(value)||/^#[a-z0-9-]+$/i.test(value)) ? value : null;
+  const make=(tag,cls,value)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(value!==undefined)n.textContent=String(value);return n;};
+  const publicationList=document.querySelector('#publications .pub-list');
+  if (publicationList && Array.isArray(data.publications) && data.publications.length) {
+    const fragment=document.createDocumentFragment();
+    for(const item of data.publications){
+      if(!item || !item.title || !['water','carbon','materials'].includes(item.topic))continue;
+      const article=make('article','pub');article.dataset.topic=item.topic;
+      article.append(make('time',null,item.year||''));
+      const body=make('div');body.append(make('h3',null,item.title),make('p',null,item.authors||''));article.append(body);
+      const url=safeUrl(item.url);
+      if(url){const a=make('a','doi','DOI ↗');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label','View DOI for '+item.title);article.append(a);}
+      fragment.append(article);
+    }
+    if(fragment.childElementCount){publicationList.replaceChildren(fragment);}
+    const count=document.getElementById('publicationCount');
+    if(count)count.textContent=`Showing ${publicationList.querySelectorAll('.pub').length} selected publications`;
+  }
+  const studiesList=document.querySelector('#projects .study-list');
+  if(studiesList && Array.isArray(data.studies) && data.studies.length){
+    const fragment=document.createDocumentFragment();
+    for(const item of data.studies){
+      if(!item||!item.title)continue;
+      const article=make('article','study-card');
+      article.append(make('span','study-index',item.category||''),make('h4',null,item.title),make('p',null,item.description||''));
+      const url=safeUrl(item.linkUrl);
+      if(url){const a=make('a',null,item.linkText||'Read more ↗');a.href=url;if(url.startsWith('https://')){a.target='_blank';a.rel='noopener noreferrer';}article.append(a);}
+      else if(item.note)article.append(make('span','study-note',item.note));
+      fragment.append(article);
+    }
+    if(fragment.childElementCount)studiesList.replaceChildren(fragment);
+  }
+})();
+</script>
 <script>document.getElementById('year').textContent=new Date().getFullYear();const menu=document.getElementById('menu'),nav=document.getElementById('navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));// Send inquiries through a real form backend. Native POST remains available without JavaScript.
 // V26: native HTML POST is intentional. Do not intercept submit with fetch.
 // FormSubmit shows its own activation/validation result and emails after recipient confirmation.
