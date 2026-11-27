@@ -209,6 +209,21 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 #gallery .gallery-photo-card small{font-size:12px;line-height:1.6}
 @media(max-width:900px){#gallery .gallery-archive{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
 @media(max-width:570px){#gallery .gallery-archive{grid-template-columns:1fr;gap:15px}#gallery .gallery-photo-card .gallery-open{aspect-ratio:4/3}}
+
+/* V33.2 — Editorial news layout. First story is featured; remaining stories retain their order. */
+#highlights .highlights-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);gap:0;border:1px solid var(--line);background:#fff}
+#highlights .highlight-item{min-width:0;min-height:0;padding:26px 30px;border:0;border-bottom:1px solid var(--line);background:#fff}
+#highlights .highlight-item+.highlight-item{border-left:0}
+#highlights .highlight-item:first-child{grid-row:span 2;padding:38px 38px 33px;border-right:1px solid var(--line);border-bottom:0;background:#f1f5f0}
+#highlights .highlight-item:first-child h3{font-size:clamp(22px,2.2vw,29px);line-height:1.45;margin:23px 0 15px}
+#highlights .highlight-item:not(:first-child) h3{font-size:17px;margin:12px 0 8px}
+#highlights .highlight-item p{overflow-wrap:break-word;hyphens:none}
+#highlights .highlight-item a{margin-top:auto;padding-top:6px}
+#highlights .highlight-meta{flex-wrap:wrap;gap:5px 14px}
+#highlights .highlight-item:first-child .highlight-meta:before{content:'IN FOCUS';font-weight:700;font-size:9px;letter-spacing:.14em;color:var(--green);background:#e0eae1;border:1px solid #cadaca;padding:3px 7px;margin-right:3px}
+#highlights .highlight-item:nth-child(2):last-child{border-bottom:0}
+#highlights .highlight-item:nth-child(3):last-child{border-bottom:0}
+@media(max-width:850px){#highlights .highlights-grid{grid-template-columns:1fr}#highlights .highlight-item:first-child{grid-row:auto;border-right:0;border-bottom:1px solid var(--line);padding:28px 24px}#highlights .highlight-item{padding:24px}#highlights .highlight-item+.highlight-item{padding:24px}}
 </style><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchOrganization","name":"Berkant Kayan Research Group","url":"https://berkantkayan.com/","description":"Independent academic research group website featuring analytical separations, subcritical water chemistry, sustainable carbon materials and functional composites.","member":[{"@type":"Person","name":"Berkant Kayan"},{"@type":"Person","name":"Sema Akay"},{"@type":"Person","name":"Ceren Tekerbaş"},{"@type":"Person","name":"Khalid Hussain"}],"sameAs":["https://scholar.google.com/citations?user=wc3_RvAAAAAJ","https://www.linkedin.com/in/berkant-kayan-b68761153/"]}</script><meta content="Berkant Kayan Research Group" property="og:title"/><meta content="website" property="og:type"/><meta content="https://berkantkayan.com/" property="og:url"/><meta content="Research in separation science, subcritical water technologies, sustainable carbon materials and functional composites." property="og:description"/><meta content="light" name="color-scheme"/><meta content="16" name="site-version"/><style>/* V19: Unaltered original photograph supplied by the group; no image generation. */
 .hero-office-photo{aspect-ratio:4/3;overflow:hidden;background:#f0f0ec}
 .hero-office-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
@@ -457,9 +472,21 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
   function highlights(items){
     const grid=document.querySelector('#highlights .highlights-grid');if(!grid)return;
     const fragment=document.createDocumentFragment();
-    for(const row of items){if(!row?.title)continue;
+    // Featured item first, then chronological order when dates/years are available.
+    // Missing dates retain their original order; existing CMS records remain unchanged.
+    const ranked=items.filter(row=>row?.title).map((row,i)=>({row,i}));
+    const stamp=row=>{
+      if(typeof row.date==='string' && /^\d{4}-\d{2}-\d{2}$/.test(row.date))return row.date;
+      const year=String(row.year||'');return /^\d{4}$/.test(year)?year+'-01-01':'';
+    };
+    ranked.sort((a,b)=>{
+      if(Boolean(a.row.featured)!==Boolean(b.row.featured))return a.row.featured?-1:1;
+      const ad=stamp(a.row),bd=stamp(b.row);if(ad!==bd)return ad<bd?1:-1;
+      return a.i-b.i;
+    });
+    for(const {row} of ranked){
       const article=make('article','highlight-item'),meta=make('div','highlight-meta');
-      meta.append(make('span','',row.year||''),make('span','',row.category||''));
+      meta.append(make('span','',row.date||row.year||''),make('span','',row.category||''));
       article.append(meta,make('h3','',row.title),make('p','',row.description||''));
       const link=safeLink(row.linkUrl);
       if(link){const a=make('a','',(row.linkText||'Read more').replace(/\s*↗\s*$/,'')+' ↗');a.href=link;if(link.startsWith('https:')){a.target='_blank';a.rel='noopener noreferrer';}article.append(a);}
