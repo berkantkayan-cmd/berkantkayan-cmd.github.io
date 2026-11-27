@@ -61,3 +61,88 @@ content:
   - name: note
     label: Note (shown when no link)
     type: text
+- name: members
+  label: Group Members
+  type: file
+  path: members.json
+  format: json
+  list: true
+  fields:
+  - name: name
+    label: Full name
+    type: string
+    required: true
+  - name: role
+    label: Position / role
+    type: string
+    required: true
+  - name: description
+    label: Short description
+    type: text
+  - name: image
+    label: Portrait (upload original)
+    type: image
+- name: gallery
+  label: Research Gallery
+  type: file
+  path: gallery.json
+  format: json
+  list: true
+  fields:
+  - name: category
+    label: Category
+    type: select
+    required: true
+    options:
+      values:
+      - label: Laboratory methods
+        name: methods
+      - label: Instrumentation
+        name: instruments
+      - label: Research visits
+        name: visits
+  - name: label
+    label: Photograph label
+    type: string
+  - name: title
+    label: Title
+    type: string
+    required: true
+  - name: description
+    label: Caption
+    type: text
+  - name: alt
+    label: Accessible image description
+    type: string
+  - name: image
+    label: Original photograph
+    type: image
+    required: true
+- name: news
+  label: News & Academic Highlights
+  type: file
+  path: news.json
+  format: json
+  list: true
+  fields:
+  - name: year
+    label: Year
+    type: string
+    required: true
+  - name: category
+    label: News category
+    type: string
+    required: true
+  - name: title
+    label: Headline
+    type: string
+    required: true
+  - name: description
+    label: Short description
+    type: text
+  - name: linkText
+    label: Link caption
+    type: string
+  - name: linkUrl
+    label: Destination URL or section anchor
+    type: string
