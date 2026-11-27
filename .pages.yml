@@ -136,6 +136,12 @@ content:
     label: Year
     type: string
     required: true
+  - name: date
+    label: Full date (optional, YYYY-MM-DD)
+    type: string
+  - name: featured
+    label: Feature this news item
+    type: boolean
   - name: category
     label: News category
     type: string
@@ -227,3 +233,4 @@ content:
     label: Cloudflare Web Analytics site token
     type: string
     description: Paste only the value of the token from the Cloudflare beacon snippet (not the whole HTML script).
+
