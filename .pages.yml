@@ -1,66 +1,148 @@
-
 media:
   input: media
   output: /media
-
 content:
-  - name: publications
-    label: Scientific Publications
-    type: file
-    path: publications.json
-    format: json
-    list: true
-    fields:
-      - name: year
-        label: Publication year
-        type: string
-        required: true
-      - name: topic
-        label: Research area
-        type: select
-        required: true
-        options:
-          values:
-            - label: Subcritical Water / Separation
-              name: water
-            - label: Biochar / Carbon
-              name: carbon
-            - label: Functional Materials
-              name: materials
-      - name: title
-        label: Article title
-        type: string
-        required: true
-      - name: authors
-        label: Authors, journal
-        type: text
-      - name: url
-        label: DOI / publication link (https://)
-        type: string
-
-  - name: studies
-    label: Research Projects / Studies
-    type: file
-    path: studies.json
-    format: json
-    list: true
-    fields:
-      - name: category
-        label: Section label
-        type: string
-      - name: title
-        label: Study title
-        type: string
-        required: true
-      - name: description
-        label: Description
-        type: text
-      - name: linkText
-        label: Link caption
-        type: string
-      - name: linkUrl
-        label: 'Link URL or #publications'
-        type: string
-      - name: note
-        label: Note (shown when no link)
-        type: text
+- name: publications
+  label: Scientific Publications
+  type: file
+  path: publications.json
+  format: json
+  list: true
+  fields:
+  - name: year
+    label: Publication year
+    type: string
+    required: true
+  - name: topic
+    label: Research area
+    type: select
+    required: true
+    options:
+      values:
+      - label: Subcritical Water / Separation
+        name: water
+      - label: Biochar / Carbon
+        name: carbon
+      - label: Functional Materials
+        name: materials
+  - name: title
+    label: Article title
+    type: string
+    required: true
+  - name: authors
+    label: Authors, journal
+    type: text
+  - name: url
+    label: DOI / publication link (https://)
+    type: string
+- name: studies
+  label: Research Projects / Studies
+  type: file
+  path: studies.json
+  format: json
+  list: true
+  fields:
+  - name: category
+    label: Section label
+    type: string
+  - name: title
+    label: Study title
+    type: string
+    required: true
+  - name: description
+    label: Description
+    type: text
+  - name: linkText
+    label: Link caption
+    type: string
+  - name: linkUrl
+    label: 'Link URL or #publications'
+    type: string
+  - name: note
+    label: Note (shown when no link)
+    type: text
+- name: members
+  label: Group Members
+  type: file
+  path: members.json
+  format: json
+  list: true
+  fields:
+  - name: name
+    label: Full name
+    type: string
+    required: true
+  - name: role
+    label: Position / role
+    type: string
+    required: true
+  - name: description
+    label: Short description
+    type: text
+  - name: image
+    label: Portrait (upload original)
+    type: image
+- name: gallery
+  label: Research Gallery
+  type: file
+  path: gallery.json
+  format: json
+  list: true
+  fields:
+  - name: category
+    label: Category
+    type: select
+    required: true
+    options:
+      values:
+      - label: Laboratory methods
+        name: methods
+      - label: Instrumentation
+        name: instruments
+      - label: Research visits
+        name: visits
+  - name: label
+    label: Photograph label
+    type: string
+  - name: title
+    label: Title
+    type: string
+    required: true
+  - name: description
+    label: Caption
+    type: text
+  - name: alt
+    label: Accessible image description
+    type: string
+  - name: image
+    label: Original photograph
+    type: image
+    required: true
+- name: news
+  label: News & Academic Highlights
+  type: file
+  path: news.json
+  format: json
+  list: true
+  fields:
+  - name: year
+    label: Year
+    type: string
+    required: true
+  - name: category
+    label: News category
+    type: string
+    required: true
+  - name: title
+    label: Headline
+    type: string
+    required: true
+  - name: description
+    label: Short description
+    type: text
+  - name: linkText
+    label: Link caption
+    type: string
+  - name: linkUrl
+    label: Destination URL or section anchor
+    type: string
