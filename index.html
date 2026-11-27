@@ -518,4 +518,25 @@ publicationFilterButtons.forEach(button=>button.addEventListener('click',()=>{
  load('profiles.json',profiles);
 })();
 </script>
+
+<!-- V32: Optional Cloudflare Web Analytics. Disabled until configured in Pages CMS. -->
+<script>
+(()=>{
+  'use strict';
+  fetch('/analytics.json', {cache:'no-store'})
+    .then(response=>{if(!response.ok)throw new Error('Analytics settings unavailable');return response.json();})
+    .then(settings=>{
+      if(settings?.enabled!==true)return;
+      const token=String(settings.cloudflareToken||'').trim();
+      if(!/^[a-zA-Z0-9-]{20,80}$/.test(token))return;
+      if(document.querySelector('script[data-cf-beacon]'))return;
+      const script=document.createElement('script');
+      script.type='module';
+      script.src='https://static.cloudflareinsights.com/beacon.min.js';
+      script.setAttribute('data-cf-beacon',JSON.stringify({token}));
+      document.body.appendChild(script);
+    })
+    .catch(()=>{/* Site content stays fully functional if analytics is unavailable. */});
+})();
+</script>
 </body></html>
