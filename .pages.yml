@@ -206,3 +206,17 @@ content:
   - name: linkUrl
     label: Link URL or anchor
     type: string
+- name: analytics
+  label: Visitor Analytics (V32)
+  type: file
+  path: analytics.json
+  format: json
+  fields:
+  - name: enabled
+    label: Enable visitor analytics
+    type: boolean
+    description: Turn on only after reviewing the privacy notice and adding a valid Cloudflare token.
+  - name: cloudflareToken
+    label: Cloudflare Web Analytics site token
+    type: string
+    description: Paste only the value of the token from the Cloudflare beacon snippet (not the whole HTML script).
