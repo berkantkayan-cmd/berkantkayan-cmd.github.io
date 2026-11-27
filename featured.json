@@ -1,0 +1,23 @@
+[
+  {
+    "category": "SEPARATION SCIENCE",
+    "title": "Subcritical water separations",
+    "description": "Aqueous chromatographic methods, separation behavior at elevated temperatures and practical limitations of analytical instrumentation.",
+    "linkText": "Explore research",
+    "linkUrl": "#research"
+  },
+  {
+    "category": "SUSTAINABLE MATERIALS",
+    "title": "Biochar & hydrochar materials",
+    "description": "Biomass-derived carbon materials, surface properties, functionalization and environmental applications.",
+    "linkText": "Explore research",
+    "linkUrl": "#research"
+  },
+  {
+    "category": "FUNCTIONAL COMPOSITES",
+    "title": "Advanced hybrid materials",
+    "description": "Functional inorganic–organic composites with analytical, environmental and materials-science applications.",
+    "linkText": "Explore research",
+    "linkUrl": "#research"
+  }
+]

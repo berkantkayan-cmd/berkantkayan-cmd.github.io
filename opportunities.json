@@ -1,0 +1,16 @@
+[
+  {
+    "type": "RESEARCH COLLABORATIONS",
+    "title": "Joint research & project proposals",
+    "description": "We welcome focused proposals connected to our research themes. Please describe the scientific question, relevant expertise and potential contributions.",
+    "linkText": "Send an inquiry",
+    "linkUrl": "#collaborate"
+  },
+  {
+    "type": "ACADEMIC EXCHANGE",
+    "title": "Visits and international exchange",
+    "description": "Researchers interested in a scientific visit or exchange may contact the group with a proposed topic, timing and funding arrangement.",
+    "linkText": "Contact the group",
+    "linkUrl": "#collaborate"
+  }
+]

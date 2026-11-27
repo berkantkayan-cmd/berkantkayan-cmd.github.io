@@ -189,6 +189,23 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 .hero-office-photo{aspect-ratio:4/3;overflow:hidden;background:#f0f0ec}
 .hero-office-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
 @media(max-width:600px){.hero-office-photo{aspect-ratio:4/3}}
+
+/* V30 — Manageable editorial sections; no changes to original photographs. */
+.v30-section{padding:72px 0;border-top:1px solid var(--line)}
+.v30-section .v30-eyebrow{color:var(--green);text-transform:uppercase;font-size:11px;letter-spacing:1.5px;font-weight:700}
+.v30-section h2{font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(25px,3vw,37px);font-weight:400;letter-spacing:-.7px;margin:12px 0 16px}
+.v30-section .v30-intro{max-width:760px;color:var(--muted);font-size:14px;line-height:1.75;margin-bottom:30px}
+.v30-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.v30-card{border:1px solid var(--line);padding:24px;background:var(--white);display:flex;flex-direction:column;min-height:205px}
+.v30-card .v30-kicker{font-size:10px;letter-spacing:1px;font-weight:700;color:var(--green);text-transform:uppercase}
+.v30-card h3{font-size:17px;margin:14px 0 9px;line-height:1.45}
+.v30-card p{font-size:13px;color:var(--muted);line-height:1.75;margin:0 0 20px}
+.v30-card a{margin-top:auto;color:var(--green);font-weight:700;font-size:12px;text-decoration:none}
+.v30-profiles{display:flex;gap:12px;flex-wrap:wrap}
+.v30-profiles a{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);min-width:180px;flex:1;padding:16px 18px;color:var(--green);font-weight:700;text-decoration:none;font-size:13px}
+.v30-profiles small{color:var(--muted);font-weight:400;font-size:11px}
+.v30-note{font-size:12px;color:var(--muted);margin:22px 0 0;line-height:1.6}
+@media(max-width:800px){.v30-grid{grid-template-columns:1fr}.v30-section{padding:50px 0}.v30-card{min-height:0}}
 </style></head><body>
 <a class="skip" href="#main">Skip to content</a><div class="topline"></div><header class="nav-wrap"><div class="container nav-inner"><a class="logo" href="#home"><span class="monogram">BK</span><span><strong>Berkant Kayan</strong><small>Research Group</small></span></a><button aria-controls="navlinks" aria-expanded="false" class="hamburger" id="menu" type="button">Menu ☰</button><nav aria-label="Main navigation" class="navlinks" id="navlinks"><a href="#about">About</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#members">Group Members</a><a href="#gallery">Gallery</a><a href="#international">International</a><a href="#partnerships">Partnerships</a><a href="#highlights">Highlights</a><a class="nav-cta" href="#collaborate">Collaborate ↗</a></nav></div></header>
 <main id="main">
@@ -263,7 +280,21 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 <article class="highlight-item"><div class="highlight-meta"><span>2026</span><span>Academic mobility</span></div><h3>Scientific exchange at Taizhou University</h3><p>International academic activity including a presentation on subcritical water chromatography.</p><a href="https://kimya.aksaray.edu.tr/prof--dr--berkant-kayandan-erasmus--ka171-kapsamindataizhou-universitesi-neziyaret" rel="noopener noreferrer" target="_blank">University announcement ↗</a></article>
 <article class="highlight-item"><div class="highlight-meta"><span>2025</span><span>Research project record</span></div><h3>ZnO-modified biochar for analytical applications</h3><p>University-documented research on fruit-peel-derived carbon composites and vanillin determination.</p><a href="#projects">Explore the project ↗</a></article>
 </div>
-</div></section><section class="section collab-section" id="collaborate"><div class="container collab-grid"><div><span class="section-no">11 / Collaborate</span><h2>Work with our group.</h2><p class="collab-intro">We welcome specific, feasible proposals from researchers, academic departments and prospective exchange partners. Share your research question, relevant expertise and a realistic idea for working together.</p><ul class="collab-topics"><li>Joint research and project development</li><li>Erasmus+ teaching and research mobility</li><li>Visiting researchers and graduate exchanges</li><li>Method development and shared studies</li><li>Invited lectures and scientific seminars</li></ul><div class="proposal-guidance"><span class="guidance-eyebrow">Preparing an inquiry</span><h3>What to include</h3><ol><li><strong>Research fit.</strong> Describe how your proposal connects with one of our research themes.</li><li><strong>Contribution.</strong> Outline your expertise, analytical methods or facilities.</li><li><strong>Practical scope.</strong> Indicate a proposed duration, funding route or mobility scheme, where relevant.</li></ol><p>Initial inquiries are reviewed individually. A message is not a guarantee of supervision, visiting placement or project approval.</p></div></div><form class="form" id="inquiry" action="https://formsubmit.co/berkantkayan@aksaray.edu.tr" method="POST" accept-charset="UTF-8">
+</div></section>
+<section class="v30-section" id="featured" aria-labelledby="featured-heading"><div class="container">
+<span class="v30-eyebrow">Featured research</span><h2 id="featured-heading">Research in focus.</h2>
+<p class="v30-intro">Selected themes that connect fundamental analytical questions with practical materials research.</p>
+<div class="v30-grid" id="featuredList"><article class="v30-card"><span class="v30-kicker">SEPARATION SCIENCE</span><h3>Subcritical water separations</h3><p>Chromatographic methods based on water-rich mobile phases and elevated-temperature separations.</p><a href="#research">Explore research ↗</a></article></div></div></section>
+<section class="v30-section" id="academic-profiles" aria-labelledby="profiles-heading"><div class="container">
+<span class="v30-eyebrow">Academic profiles</span><h2 id="profiles-heading">Explore the academic record.</h2>
+<p class="v30-intro">Researcher identifiers, publications and professional profiles are linked directly to their respective services.</p>
+<div class="v30-profiles" id="academicProfiles"><a href="https://orcid.org/0000-0002-9892-5284" target="_blank" rel="noopener noreferrer">ORCID<small>Researcher identifier</small></a></div></div></section>
+<section class="v30-section" id="opportunities" aria-labelledby="opportunities-heading"><div class="container">
+<span class="v30-eyebrow">Research opportunities</span><h2 id="opportunities-heading">Start a research conversation.</h2>
+<p class="v30-intro">We are open to discussing scientifically aligned collaborations and exchanges. These invitations are not advertisements for funded vacancies or guaranteed placements.</p>
+<div class="v30-grid" id="opportunitiesList"><article class="v30-card"><span class="v30-kicker">RESEARCH COLLABORATIONS</span><h3>Joint research &amp; project proposals</h3><p>Share a focused proposal connected to the group's research areas.</p><a href="#collaborate">Send an inquiry ↗</a></article></div>
+<p class="v30-note">Any actual funded position or student opening should be explicitly listed with eligibility criteria, deadlines and funding information before applications are invited.</p></div></section>
+<section class="section collab-section" id="collaborate"><div class="container collab-grid"><div><span class="section-no">11 / Collaborate</span><h2>Work with our group.</h2><p class="collab-intro">We welcome specific, feasible proposals from researchers, academic departments and prospective exchange partners. Share your research question, relevant expertise and a realistic idea for working together.</p><ul class="collab-topics"><li>Joint research and project development</li><li>Erasmus+ teaching and research mobility</li><li>Visiting researchers and graduate exchanges</li><li>Method development and shared studies</li><li>Invited lectures and scientific seminars</li></ul><div class="proposal-guidance"><span class="guidance-eyebrow">Preparing an inquiry</span><h3>What to include</h3><ol><li><strong>Research fit.</strong> Describe how your proposal connects with one of our research themes.</li><li><strong>Contribution.</strong> Outline your expertise, analytical methods or facilities.</li><li><strong>Practical scope.</strong> Indicate a proposed duration, funding route or mobility scheme, where relevant.</li></ol><p>Initial inquiries are reviewed individually. A message is not a guarantee of supervision, visiting placement or project approval.</p></div></div><form class="form" id="inquiry" action="https://formsubmit.co/berkantkayan@aksaray.edu.tr" method="POST" accept-charset="UTF-8">
 <h3>Research inquiry</h3>
 <p class="form-intro">Send your collaboration proposal via FormSubmit. You will be redirected to the delivery service to complete the submission.</p>
 <input type="hidden" name="_subject" value="New research collaboration inquiry — Berkant Kayan Research Group">
@@ -463,4 +494,19 @@ publicationFilterButtons.forEach(button=>button.addEventListener('click',()=>{
  window.addEventListener('researchGalleryChanged',()=>{refresh();});
  refresh();
 })();
-</script></body></html>
+</script>
+<script>
+/* V30 — Pages CMS managed academic profiles, featured research and opportunities. */
+(()=>{
+ const safeUrl=u=>typeof u==='string' && (/^https:\/\//i.test(u)||/^#[a-z0-9-]+$/i.test(u))?u:null;
+ const el=(tag,cls,text)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=String(text||'');return x;};
+ const link=(data)=>{const url=safeUrl(data.linkUrl);if(!url)return null;const a=el('a',null,(data.linkText||'Read more')+' ↗');a.href=url;if(url.startsWith('https://')){a.target='_blank';a.rel='noopener noreferrer';}return a;};
+ function cards(items,containerId,kickerKey){if(!Array.isArray(items))return;const dest=document.getElementById(containerId);if(!dest)return;const frag=document.createDocumentFragment();for(const item of items){if(!item || !item.title)continue;const card=el('article','v30-card');card.append(el('span','v30-kicker',item[kickerKey]||''),el('h3',null,item.title),el('p',null,item.description||''));const a=link(item);if(a)card.append(a);frag.append(card);}dest.replaceChildren(frag);}
+ function profiles(items){if(!Array.isArray(items))return;const dest=document.getElementById('academicProfiles');if(!dest)return;const frag=document.createDocumentFragment();for(const p of items){const url=safeUrl(p.url);if(!url||!p.label)continue;const a=el('a',null,p.label);a.href=url;if(url.startsWith('https://')){a.target='_blank';a.rel='noopener noreferrer';}a.append(el('small',null,p.description||''));frag.append(a);}dest.replaceChildren(frag);}
+ async function load(path,render){try{const r=await fetch(path,{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);render(await r.json());}catch(e){console.warn('V30 fallback content for '+path,e);}}
+ load('featured.json',d=>cards(d,'featuredList','category'));
+ load('opportunities.json',d=>cards(d,'opportunitiesList','type'));
+ load('profiles.json',profiles);
+})();
+</script>
+</body></html>
