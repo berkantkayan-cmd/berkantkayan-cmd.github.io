@@ -1,4 +1,4 @@
 {
-  "enabled": false,
-  "cloudflareToken": ""
+  "enabled": true,
+  "cloudflareToken": "4e8e3d606b2b467791642c3e8e590e73"
 }
