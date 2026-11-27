@@ -1,6 +1,7 @@
 [
   {
     "year": "2026",
+    "featured": true,
     "category": "Publication",
     "title": "Biochar and hydrochar for wastewater treatment",
     "description": "A review addressing materials, interfacial processes and their relevance to water treatment. ",
@@ -9,6 +10,7 @@
   },
   {
     "year": "2026",
+    "featured": false,
     "category": "Academic mobility",
     "title": "Scientific exchange at Taizhou University",
     "description": "International academic activity including a presentation on subcritical water chromatography.",
@@ -17,6 +19,7 @@
   },
   {
     "year": "2025",
+    "featured": false,
     "category": "Research project record",
     "title": "ZnO-modified biochar for analytical applications",
     "description": "University-documented research on fruit-peel-derived carbon composites and vanillin determination.",
