@@ -35,6 +35,13 @@ content:
   - name: url
     label: DOI / publication link (https://)
     type: string
+  - name: abstract
+    label: Short publication summary (optional, verified text only)
+    type: text
+  - name: featured
+    label: Featured research (optional)
+    type: boolean
+    default: false
 - name: studies
   label: Research Projects / Studies
   type: file
