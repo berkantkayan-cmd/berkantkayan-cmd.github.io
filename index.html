@@ -224,6 +224,38 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 #highlights .highlight-item:nth-child(2):last-child{border-bottom:0}
 #highlights .highlight-item:nth-child(3):last-child{border-bottom:0}
 @media(max-width:850px){#highlights .highlights-grid{grid-template-columns:1fr}#highlights .highlight-item:first-child{grid-row:auto;border-right:0;border-bottom:1px solid var(--line);padding:28px 24px}#highlights .highlight-item{padding:24px}#highlights .highlight-item+.highlight-item{padding:24px}}
+
+/* V33.3 — optional compact horizontal navigation; all content preserved in DOM */
+.bk-modebar{position:sticky;top:83px;z-index:19;background:rgba(248,250,247,.98);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.bk-mode-inner{display:flex;align-items:center;gap:8px;min-height:62px;overflow-x:auto;scrollbar-width:thin;padding-block:8px}
+.bk-mode-label{font-size:10px;font-weight:700;color:#51695c;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;margin-right:10px}
+.bk-mode-btn{white-space:nowrap;border:1px solid #d9e4db;background:white;color:#2d5143;font-size:11px;line-height:1.25;font-weight:700;padding:10px 15px;min-height:38px;border-radius:3px}
+.bk-mode-btn:hover,.bk-mode-btn[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+.bk-mode-btn.bk-all{margin-left:auto;border-style:dashed}
+.bk-view-intro{font-size:12px;color:var(--muted);padding:8px 0 14px}
+.bk-focus-active .hero-grid{padding:35px 0 39px;gap:38px}
+.bk-focus-active .hero h1{font-size:clamp(28px,3.2vw,43px);line-height:1.22;margin:12px 0 13px}
+.bk-focus-active .hero-desc{font-size:14px;line-height:1.65}
+.bk-focus-active .action-row{margin-top:19px}
+.bk-focus-active .hero-people{max-width:330px;justify-self:end}
+.bk-focus-active .hero-office-photo{aspect-ratio:1.6}
+.bk-focus-active .hero-office-photo img{object-position:50% 38%}
+.bk-focus-active .strip .container{padding:10px 0;font-size:10px}
+.bk-focus-active .section{padding:38px 0}
+.bk-focus-active .v30-section{padding:38px 0}
+.bk-focus-active .section-head{margin-bottom:18px}
+.bk-focus-active .section h2{font-size:clamp(24px,2.2vw,31px)}
+.bk-focus-active .research-card{min-height:235px;padding:20px}
+.bk-focus-active .research-icon{margin-bottom:12px}
+.bk-focus-active .gallery-section .gallery-grid{gap:14px}
+.bk-focus-active .about-grid{gap:42px}
+.bk-focus-active .section-lead{line-height:1.7}
+#main > section[hidden]{display:none!important}
+@media(min-width:1320px){.bk-focus-active .container{width:min(1340px,calc(100% - 74px))}}
+@media(max-width:850px){.bk-modebar{top:73px}.bk-mode-inner{min-height:57px}.bk-mode-label{display:none}.bk-focus-active .hero-grid{padding:29px 0 33px;gap:21px}.bk-focus-active .hero-people{max-width:none}.bk-focus-active .section,.bk-focus-active .v30-section{padding:37px 0}}
+@media(max-width:540px){.bk-mode-btn{padding:9px 12px}.bk-mode-inner{min-height:54px}.bk-focus-active .hero-office-photo{aspect-ratio:4/3}.bk-focus-active .hero h1{font-size:29px}.bk-focus-active .hero-people{max-width:100%}}
+@media(prefers-reduced-motion:reduce){.bk-modebar{scroll-behavior:auto}}
+
 </style><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchOrganization","name":"Berkant Kayan Research Group","url":"https://berkantkayan.com/","description":"Independent academic research group website featuring analytical separations, subcritical water chemistry, sustainable carbon materials and functional composites.","member":[{"@type":"Person","name":"Berkant Kayan"},{"@type":"Person","name":"Sema Akay"},{"@type":"Person","name":"Ceren Tekerbaş"},{"@type":"Person","name":"Khalid Hussain"}],"sameAs":["https://scholar.google.com/citations?user=wc3_RvAAAAAJ","https://www.linkedin.com/in/berkant-kayan-b68761153/"]}</script><meta content="Berkant Kayan Research Group" property="og:title"/><meta content="website" property="og:type"/><meta content="https://berkantkayan.com/" property="og:url"/><meta content="Research in separation science, subcritical water technologies, sustainable carbon materials and functional composites." property="og:description"/><meta content="light" name="color-scheme"/><meta content="16" name="site-version"/><style>/* V19: Unaltered original photograph supplied by the group; no image generation. */
 .hero-office-photo{aspect-ratio:4/3;overflow:hidden;background:#f0f0ec}
 .hero-office-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
@@ -256,6 +288,7 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 </head><body>
 <a class="skip" href="#main">Skip to content</a><div class="topline"></div><header class="nav-wrap"><div class="container nav-inner"><a class="logo" href="#home"><span class="monogram">BK</span><span><strong>Berkant Kayan</strong><small>Research Group</small></span></a><button aria-controls="navlinks" aria-expanded="false" class="hamburger" id="menu" type="button">Menu ☰</button><nav aria-label="Main navigation" class="navlinks" id="navlinks"><a href="#about">About</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#members">Group Members</a><a href="#gallery">Gallery</a><a href="#international">International</a><a href="#partnerships">Partnerships</a><a href="#highlights">Highlights</a><a class="nav-cta" href="#collaborate">Collaborate ↗</a></nav></div></header>
 <main id="main">
+<div class="bk-modebar" aria-label="Content display and navigation"><div class="container bk-mode-inner" role="group" aria-label="Browse site sections"><span class="bk-mode-label">Browse</span><button class="bk-mode-btn" type="button" data-bk-view="overview" aria-pressed="true">Overview</button><button class="bk-mode-btn" type="button" data-bk-view="science" aria-pressed="false">Research &amp; Publications</button><button class="bk-mode-btn" type="button" data-bk-view="people" aria-pressed="false">People &amp; Gallery</button><button class="bk-mode-btn" type="button" data-bk-view="network" aria-pressed="false">International Network</button><button class="bk-mode-btn" type="button" data-bk-view="updates" aria-pressed="false">News &amp; Opportunities</button><button class="bk-mode-btn bk-all" type="button" data-bk-view="all" aria-pressed="false">Full page ↓</button></div></div>
 <section class="hero" id="home"><div class="container hero-grid"><div><div class="eyebrow">Berkant Kayan Research Group · Aksaray, Türkiye</div><h1>Chemistry shaped by questions, people and collaboration.</h1><p class="hero-desc">We study subcritical water separations, sustainable carbon materials and functional composites — combining analytical chemistry with experimental materials research.</p><div class="action-row"><a class="btn" href="#research">Explore our research <span aria-hidden="true">↗</span></a><a class="text-link" href="#collaborate">Collaborate with us ↗</a></div></div><div class="hero-people"><figure class="hero-office-photo"><img alt="Prof. Dr. Berkant Kayan — original office photograph" decoding="async" loading="eager" fetchpriority="high" src="assets/photo-89bbb8c7049e.jpg"/ width="945" height="2048"></figure><p class="hero-office-caption">Prof. Dr. Berkant Kayan  ·  Group Leader</p></div></div></section>
 <div class="strip"><div class="container"><span>Analytical chemistry</span><span>Subcritical water</span><span>Biochar &amp; hydrochar</span><span>Advanced materials</span></div></div>
 <section class="section" id="about"><div class="container about-grid"><div><span class="section-no">01 / About the group</span><h2>Curiosity, rigorous methods and meaningful applications.</h2></div><div class="about-copy"><p>The Berkant Kayan Research Group is an independently presented academic research team led by Prof. Dr. Berkant Kayan at Aksaray University, Türkiye.</p><p>Our research spans analytical separations, water-based processing, sustainable carbon materials and functional composites. Across these themes, we pay particular attention to experimentally grounded methods, material behavior and the conditions that determine practical performance.</p><p>We work with academic collaborators and welcome research exchange across chemistry, environmental science and materials development.</p><div class="about-foot">Scientific integrity · Collaboration · Sustainable innovation</div></div></div></section>
@@ -597,6 +630,39 @@ document.querySelector('#publications .pub-list')?.after(publicationEmpty);
       document.body.appendChild(script);
     })
     .catch(()=>{/* Site content stays fully functional if analytics is unavailable. */});
+})();
+</script>
+
+<script id="bk-compact-navigation">
+(function(){
+  'use strict';
+  var groups={
+    overview:['about','research','projects'],
+    science:['research','projects','publications','featured'],
+    people:['members','gallery'],
+    network:['international','partnerships','research-record','academic-profiles'],
+    updates:['highlights','opportunities','collaborate'],
+    all:null
+  };
+  var sections=Array.from(document.querySelectorAll('#main > section[id]')).filter(function(el){return el.id!=='home';});
+  var buttons=Array.from(document.querySelectorAll('[data-bk-view]'));
+  var modebar=document.querySelector('.bk-modebar');
+  if(!sections.length||!modebar)return;
+  function viewFor(id){for(var k of ['overview','science','people','network','updates'])if(groups[k].indexOf(id)>-1)return k;return null;}
+  function setView(key,scroll){
+    var list=groups[key]; if(typeof list==='undefined')key='all',list=null;
+    document.body.classList.toggle('bk-focus-active',key!=='all');
+    sections.forEach(function(sec){sec.hidden=!!list&&list.indexOf(sec.id)===-1;});
+    buttons.forEach(function(btn){btn.setAttribute('aria-pressed',String(btn.getAttribute('data-bk-view')===key));});
+    if(scroll)window.scrollTo({top:Math.max(0,modebar.getBoundingClientRect().top+window.scrollY-85),behavior:'smooth'});
+  }
+  buttons.forEach(function(btn){btn.addEventListener('click',function(){setView(btn.getAttribute('data-bk-view'),true);});});
+  function revealHash(){var id=decodeURIComponent(location.hash.slice(1));if(!id)return false;var el=document.getElementById(id);if(!el)return false;
+    var root=el.closest('#main > section[id]');if(root&&root.id!=='home'){var k=viewFor(root.id);setView(k||'all',false);return true;}return false;
+  }
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1);var el=document.getElementById(id);if(!el)return;var root=el.closest('#main > section[id]');if(root&&root.hidden){setView(viewFor(root.id)||'all',false);}});
+  window.addEventListener('hashchange',revealHash);
+  if(!revealHash())setView('overview',false);
 })();
 </script>
 </body></html>
