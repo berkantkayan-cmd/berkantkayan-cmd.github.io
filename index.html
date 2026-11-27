@@ -186,6 +186,17 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 #inquirySubmit:disabled{opacity:.65;cursor:wait}
 .form .fineprint a{text-decoration:underline;text-underline-offset:2px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* V33: compact publication finder and optional editorial details */
+.publication-search-label{font-size:11px;font-weight:700;letter-spacing:.2px;color:var(--ink)}
+.publication-search{width:100%;min-width:180px;max-width:295px;padding:10px 11px;border:1px solid #c8d9ce;background:#fff;border-radius:3px;color:var(--ink);font:inherit;font-size:12px}
+.publication-search:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.pub-featured{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--green);background:#e9f0ea;padding:3px 7px;margin-bottom:7px}
+.pub-abstract{font-size:12px;color:var(--muted);line-height:1.7;margin-top:9px}
+.pub-abstract summary{cursor:pointer;font-weight:700;color:var(--green);list-style:revert}
+.pub-abstract p{margin:7px 0 0;max-width:760px}
+.publication-empty{padding:20px 0;color:var(--muted);font-size:13px}
+@media(max-width:700px){.publication-search{max-width:none;margin-top:8px}.pub{grid-template-columns:52px minmax(0,1fr);gap:10px}.pub .doi{grid-column:2;justify-self:start}}
 </style><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchOrganization","name":"Berkant Kayan Research Group","url":"https://berkantkayan.com/","description":"Independent academic research group website featuring analytical separations, subcritical water chemistry, sustainable carbon materials and functional composites.","member":[{"@type":"Person","name":"Berkant Kayan"},{"@type":"Person","name":"Sema Akay"},{"@type":"Person","name":"Ceren Tekerbaş"},{"@type":"Person","name":"Khalid Hussain"}],"sameAs":["https://scholar.google.com/citations?user=wc3_RvAAAAAJ","https://www.linkedin.com/in/berkant-kayan-b68761153/"]}</script><meta content="Berkant Kayan Research Group" property="og:title"/><meta content="website" property="og:type"/><meta content="https://berkantkayan.com/" property="og:url"/><meta content="Research in separation science, subcritical water technologies, sustainable carbon materials and functional composites." property="og:description"/><meta content="light" name="color-scheme"/><meta content="16" name="site-version"/><style>/* V19: Unaltered original photograph supplied by the group; no image generation. */
 .hero-office-photo{aspect-ratio:4/3;overflow:hidden;background:#f0f0ec}
 .hero-office-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
@@ -249,9 +260,11 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 <button aria-pressed="false" class="pub-filter" data-filter="carbon" type="button">Carbon materials</button>
 <button aria-pressed="false" class="pub-filter" data-filter="materials" type="button">Functional materials</button>
 </div>
+<label class="publication-search-label" for="publicationSearch">Search publications</label>
+<input id="publicationSearch" class="publication-search" type="search" placeholder="Title, author, journal or year" autocomplete="off" aria-controls="publicationList"/>
 <p aria-live="polite" class="publication-count" id="publicationCount">Showing 5 selected publications</p>
 </div>
-<div class="pub-list"><article class="pub" data-topic="carbon"><time>2026</time><div><h3>From Production Chemistry to Interfacial Reactions: Low- and Moderate-Temperature Biochar and Hydrochar for Integrated Wastewater Treatment</h3><p>B. Kayan and A. Alver · Reactions</p></div><a aria-label="View DOI for From Production Chemistry to Interfacial Reactions: Low- and Moderate-Temperature Biochar and Hydrochar for Integrated Wastewater Treatment" class="doi" href="https://doi.org/10.3390/reactions7040063" rel="noopener noreferrer" target="_blank">DOI ↗</a></article><article class="pub" data-topic="materials"><time>2024</time><div><h3>Palladium nanoparticles supported on biochar/graphitic carbon nitride as a heterogeneous catalyst for pharmaceutical degradation</h3><p>P. Yekan Motlagh et al., including B. Kayan · Journal of Environmental Chemical Engineering</p></div><a aria-label="View DOI for Palladium nanoparticles supported on biochar/graphitic carbon nitride as a heterogeneous catalyst for pharmaceutical degradation" class="doi" href="https://doi.org/10.1016/j.jece.2024.113150" rel="noopener noreferrer" target="_blank">DOI ↗</a></article><article class="pub" data-topic="water"><time>2023</time><div><h3>Solubility and Decomposition of Organic Compounds in Subcritical Water</h3><p>E. Yabalak, S. Akay, B. Kayan, A. M. Gizir and Y. Yang · Molecules</p></div><a aria-label="View DOI for Solubility and Decomposition of Organic Compounds in Subcritical Water" class="doi" href="https://doi.org/10.3390/molecules28031000" rel="noopener noreferrer" target="_blank">DOI ↗</a></article><article class="pub" data-topic="carbon"><time>2017</time><div><h3>Adsorption of 2,4-dichlorophenol on paper sludge/wheat husk biochar: Process optimization and comparison with biochars prepared from wood chips, sewage sludge and hog fuel/demolition waste</h3><p>D. Kalderis, B. Kayan, S. Akay, E. Kulaksız and B. Gözmen · Journal of Environmental Chemical Engineering</p></div><a aria-label="View DOI for Adsorption of 2,4-dichlorophenol on paper sludge/wheat husk biochar: Process optimization and comparison with biochars prepared from wood chips, sewage sludge and hog fuel/demolition waste" class="doi" href="https://doi.org/10.1016/j.jece.2017.04.039" rel="noopener noreferrer" target="_blank">DOI ↗</a></article><article class="pub" data-topic="water"><time>2017</time><div><h3>Solubility and Chromatographic Separation of 5-Fluorouracil under Subcritical Water Conditions</h3><p>S. Akay, B. Kayan and Y. Yang · Journal of Chemical &amp; Engineering Data</p></div><a aria-label="View DOI for Solubility and Chromatographic Separation of 5-Fluorouracil under Subcritical Water Conditions" class="doi" href="https://doi.org/10.1021/acs.jced.7b00015" rel="noopener noreferrer" target="_blank">DOI ↗</a></article></div><div class="publication-bottom"><div class="profile-links"><a class="text-link" href="https://scholar.google.com/citations?user=wc3_RvAAAAAJ&amp;hl=en" rel="noopener noreferrer" target="_blank">Google Scholar ↗</a><a class="text-link" href="https://orcid.org/0000-0002-9892-5284" rel="noopener noreferrer" target="_blank">ORCID ↗</a><a class="text-link" href="https://openalex.org/authors/A5068583257" rel="noopener noreferrer" target="_blank">OpenAlex ↗</a></div><span class="small-note">Selected records · full bibliography via profiles</span></div></div></section>
+<div class="pub-list" id="publicationList"><article class="pub" data-topic="carbon"><time>2026</time><div><h3>From Production Chemistry to Interfacial Reactions: Low- and Moderate-Temperature Biochar and Hydrochar for Integrated Wastewater Treatment</h3><p>B. Kayan and A. Alver · Reactions</p></div><a aria-label="View DOI for From Production Chemistry to Interfacial Reactions: Low- and Moderate-Temperature Biochar and Hydrochar for Integrated Wastewater Treatment" class="doi" href="https://doi.org/10.3390/reactions7040063" rel="noopener noreferrer" target="_blank">DOI ↗</a></article><article class="pub" data-topic="materials"><time>2024</time><div><h3>Palladium nanoparticles supported on biochar/graphitic carbon nitride as a heterogeneous catalyst for pharmaceutical degradation</h3><p>P. Yekan Motlagh et al., including B. Kayan · Journal of Environmental Chemical Engineering</p></div><a aria-label="View DOI for Palladium nanoparticles supported on biochar/graphitic carbon nitride as a heterogeneous catalyst for pharmaceutical degradation" class="doi" href="https://doi.org/10.1016/j.jece.2024.113150" rel="noopener noreferrer" target="_blank">DOI ↗</a></article><article class="pub" data-topic="water"><time>2023</time><div><h3>Solubility and Decomposition of Organic Compounds in Subcritical Water</h3><p>E. Yabalak, S. Akay, B. Kayan, A. M. Gizir and Y. Yang · Molecules</p></div><a aria-label="View DOI for Solubility and Decomposition of Organic Compounds in Subcritical Water" class="doi" href="https://doi.org/10.3390/molecules28031000" rel="noopener noreferrer" target="_blank">DOI ↗</a></article><article class="pub" data-topic="carbon"><time>2017</time><div><h3>Adsorption of 2,4-dichlorophenol on paper sludge/wheat husk biochar: Process optimization and comparison with biochars prepared from wood chips, sewage sludge and hog fuel/demolition waste</h3><p>D. Kalderis, B. Kayan, S. Akay, E. Kulaksız and B. Gözmen · Journal of Environmental Chemical Engineering</p></div><a aria-label="View DOI for Adsorption of 2,4-dichlorophenol on paper sludge/wheat husk biochar: Process optimization and comparison with biochars prepared from wood chips, sewage sludge and hog fuel/demolition waste" class="doi" href="https://doi.org/10.1016/j.jece.2017.04.039" rel="noopener noreferrer" target="_blank">DOI ↗</a></article><article class="pub" data-topic="water"><time>2017</time><div><h3>Solubility and Chromatographic Separation of 5-Fluorouracil under Subcritical Water Conditions</h3><p>S. Akay, B. Kayan and Y. Yang · Journal of Chemical &amp; Engineering Data</p></div><a aria-label="View DOI for Solubility and Chromatographic Separation of 5-Fluorouracil under Subcritical Water Conditions" class="doi" href="https://doi.org/10.1021/acs.jced.7b00015" rel="noopener noreferrer" target="_blank">DOI ↗</a></article></div><div class="publication-bottom"><div class="profile-links"><a class="text-link" href="https://scholar.google.com/citations?user=wc3_RvAAAAAJ&amp;hl=en" rel="noopener noreferrer" target="_blank">Google Scholar ↗</a><a class="text-link" href="https://orcid.org/0000-0002-9892-5284" rel="noopener noreferrer" target="_blank">ORCID ↗</a><a class="text-link" href="https://openalex.org/authors/A5068583257" rel="noopener noreferrer" target="_blank">OpenAlex ↗</a></div><span class="small-note">Selected records · full bibliography via profiles</span></div></div></section>
 <section class="section" id="members"><div class="container"><div class="section-head"><div><span class="section-no">05 / People</span><h2>Group Members.</h2></div><p>The people behind our research. We value multidisciplinary ideas, careful experimentation and collaborative work.</p></div><div class="members"><article class="person"><div class="portrait"><img alt="Portrait of Prof. Dr. Berkant Kayan" decoding="async" loading="lazy" src="assets/photo-844596b0301f.jpg"/ width="304" height="296"></div><h3>Prof. Dr. Berkant Kayan</h3><div class="role">Principal Investigator</div><p>Group Leader · Aksaray University</p></article><article class="person"><div class="portrait"><img alt="Portrait of Dr. Sema Akay" decoding="async" loading="lazy" src="assets/photo-f6233e695e38.jpg"/ width="305" height="305"></div><h3>Dr. Sema Akay</h3><div class="role">Researcher</div><p>Research group member</p></article><article class="person"><div class="portrait"><img alt="Portrait of Ceren Tekerbaş" decoding="async" loading="lazy" src="assets/photo-c3d9057b2e2e.jpg"/ width="305" height="305"></div><h3>Ceren Tekerbaş</h3><div class="role">MSc Student</div><p>Graduate researcher</p></article><article class="person"><div class="portrait"><img alt="Portrait of Khalid Hussain" decoding="async" loading="lazy" src="assets/photo-be9f6253382f.jpg"/ width="133" height="142"></div><h3>Khalid Hussain</h3><div class="role">Erasmus Visiting Student</div><p>Visiting group member</p></article></div></div></section><section class="section gallery-section bg" id="gallery"><div class="container"><div class="section-head"><div><span class="section-no">06 / Gallery</span><h2>Inside the group.</h2></div><p>Original photographs of laboratory methods, instruments, research visits and academic exchange.</p></div><div aria-label="Filter research photographs" class="gallery-tools" role="group">
 <button aria-pressed="true" class="gallery-filter is-active" data-gallery-filter="all" type="button">All photographs</button>
 <button aria-pressed="false" class="gallery-filter" data-gallery-filter="methods" type="button">Laboratory methods</button>
@@ -329,29 +342,46 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 (() => {
   const safeUrl=value=>typeof value==='string' && (/^https:\/\//i.test(value)||/^#[a-z0-9-]+$/i.test(value)) ? value : null;
   const make=(tag,cls,value)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(value!==undefined)n.textContent=String(value);return n;};
+  function updatePublicationVisibility(){
+    const list=document.querySelector('#publications .pub-list');
+    if(!list)return;
+    const category=document.querySelector('.pub-filter.is-active')?.dataset.filter||'all';
+    const query=(document.getElementById('publicationSearch')?.value||'').trim().toLocaleLowerCase('en');
+    let shown=0;
+    list.querySelectorAll('.pub[data-topic]').forEach(entry=>{
+      const text=(entry.dataset.searchText||entry.textContent||'').toLocaleLowerCase('en');
+      const visible=(category==='all'||entry.dataset.topic===category)&&(!query||text.includes(query));
+      entry.hidden=!visible;if(visible)shown++;
+    });
+    const empty=document.getElementById('publicationEmpty');
+    if(empty)empty.hidden=shown!==0;
+    const count=document.getElementById('publicationCount');
+    if(count)count.textContent=`Showing ${shown} selected publication${shown===1?'':'s'}`;
+  }
+  window.updatePublicationVisibility=updatePublicationVisibility;
   function renderPublications(items){
     const list=document.querySelector('#publications .pub-list');
     if(!list||!Array.isArray(items)||!items.length)return;
     const fragment=document.createDocumentFragment();
     for(const item of items){
-      if(!item || !item.title || !['water','carbon','materials'].includes(item.topic))continue;
+      if(!item||!item.title||!['water','carbon','materials'].includes(item.topic))continue;
       const article=make('article','pub');article.dataset.topic=item.topic;
       article.append(make('time',null,item.year||''));
-      const body=make('div');body.append(make('h3',null,item.title),make('p',null,item.authors||''));article.append(body);
+      const body=make('div');
+      if(item.featured===true)body.append(make('span','pub-featured','Featured research'));
+      body.append(make('h3',null,item.title),make('p',null,item.authors||''));
+      if(typeof item.abstract==='string'&&item.abstract.trim()){
+        const details=make('details','pub-abstract');
+        details.append(make('summary',null,'Read summary'),make('p',null,item.abstract.trim()));
+        body.append(details);
+      }
+      article.dataset.searchText=[item.title,item.authors,item.year,item.abstract,item.journal].filter(v=>typeof v==='string').join(' ');
+      article.append(body);
       const url=safeUrl(item.url);
-      if(url){const a=make('a','doi','DOI ↗');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label','View DOI for '+item.title);article.append(a);}
+      if(url){const a=make('a','doi',/^https:\/\/doi\.org\//i.test(url)?'DOI ↗':'Article ↗');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label','Open publication record for '+item.title);article.append(a);}
       fragment.append(article);
     }
-    if(fragment.childElementCount){
-      list.replaceChildren(fragment);
-      // Respect the currently selected topic when JSON finishes loading.
-      const selected=document.querySelector('.pub-filter.is-active');
-      const category=selected?.dataset.filter||'all';
-      let shown=0;
-      list.querySelectorAll('.pub[data-topic]').forEach(entry=>{entry.hidden=category!=='all'&&entry.dataset.topic!==category;if(!entry.hidden)shown++;});
-      const count=document.getElementById('publicationCount');
-      if(count)count.textContent=`Showing ${shown} selected publication${shown===1?'':'s'}`;
-    }
+    if(fragment.childElementCount){list.replaceChildren(fragment);updatePublicationVisibility();}
   }
   function renderStudies(items){
     const list=document.querySelector('#projects .study-list');
@@ -435,22 +465,13 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
 // FormSubmit shows its own activation/validation result and emails after recipient confirmation.
 // Browse the selected bibliography without loading external services.
 const publicationFilterButtons=document.querySelectorAll('.pub-filter');
-const publicationCount=document.getElementById('publicationCount');
 publicationFilterButtons.forEach(button=>button.addEventListener('click',()=>{
- const category=button.dataset.filter;
- publicationFilterButtons.forEach(other=>{
-  const selected=other===button;
-  other.classList.toggle('is-active',selected);
-  other.setAttribute('aria-pressed',String(selected));
- });
- let shown=0;
- document.querySelectorAll('.pub-list .pub[data-topic]').forEach(entry=>{
-  const visible=category==='all'||entry.dataset.topic===category;
-  entry.hidden=!visible;
-  if(visible)shown++;
- });
- publicationCount.textContent=`Showing ${shown} selected publication${shown===1?'':'s'}`;
+ publicationFilterButtons.forEach(other=>{const selected=other===button;other.classList.toggle('is-active',selected);other.setAttribute('aria-pressed',String(selected));});
+ window.updatePublicationVisibility?.();
 }));
+document.getElementById('publicationSearch')?.addEventListener('input',()=>window.updatePublicationVisibility?.());
+const publicationEmpty=document.createElement('p');publicationEmpty.id='publicationEmpty';publicationEmpty.className='publication-empty';publicationEmpty.textContent='No publications match your search.';publicationEmpty.hidden=true;
+document.querySelector('#publications .pub-list')?.after(publicationEmpty);
 
 // V29: gallery filters and lightbox work with both original and CMS-added photographs.
 (() => {
