@@ -23,7 +23,8 @@
     "title": "Solubility and Decomposition of Organic Compounds in Subcritical Water",
     "authors": "E. Yabalak, S. Akay, B. Kayan, A. M. Gizir and Y. Yang · Molecules",
     "url": "https://doi.org/10.3390/molecules28031000",
-    "featured": false
+    "abstract": "This review examines research published over the past 25 years on the solubility and decomposition of organic compounds in subcritical water. It highlights the potential of temperature-controlled water as a green solvent for environmental remediation, extraction, and chemical processing. The study discusses experimental techniques for measuring organic solubility, mathematical models used to predict solubility behavior, and relationships between experimental and calculated data. It also evaluates the thermal decomposition of organic compounds under subcritical conditions. The review demonstrates that increasing water temperature generally enhances the solubility of organic substances while promoting their decomposition. These findings provide valuable guidance for developing sustainable processes using subcritical water.",
+    "featured": true
   },
   {
     "year": "2017",
