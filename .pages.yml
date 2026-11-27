@@ -146,3 +146,63 @@ content:
   - name: linkUrl
     label: Destination URL or section anchor
     type: string
+- name: profiles
+  label: Academic Profiles
+  type: file
+  path: profiles.json
+  format: json
+  list: true
+  fields:
+  - name: label
+    label: Profile name
+    type: string
+  - name: url
+    label: Profile URL
+    type: string
+  - name: description
+    label: Caption
+    type: string
+- name: featured
+  label: Featured Research
+  type: file
+  path: featured.json
+  format: json
+  list: true
+  fields:
+  - name: category
+    label: Category
+    type: string
+  - name: title
+    label: Title
+    type: string
+  - name: description
+    label: Short description
+    type: text
+  - name: linkText
+    label: Link label
+    type: string
+  - name: linkUrl
+    label: Link URL or anchor
+    type: string
+- name: opportunities
+  label: Research Opportunities
+  type: file
+  path: opportunities.json
+  format: json
+  list: true
+  fields:
+  - name: type
+    label: Opportunity type
+    type: string
+  - name: title
+    label: Title
+    type: string
+  - name: description
+    label: Description
+    type: text
+  - name: linkText
+    label: Link label
+    type: string
+  - name: linkUrl
+    label: Link URL or anchor
+    type: string
