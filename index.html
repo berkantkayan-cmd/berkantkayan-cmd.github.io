@@ -336,6 +336,60 @@ section{scroll-margin-top:90px}.section{padding:87px 0}.section.bg{background:#f
   load('studies.json',renderStudies);
 })();
 </script>
+<script>
+/* V29: Pages CMS-managed people, photographs and news. Fallback HTML stays visible if loading fails. */
+(() => {
+  const make=(tag,cls,txt)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(txt!==undefined)el.textContent=String(txt);return el;};
+  const imagePath=(v)=>typeof v==='string' && (/^\/(?!\/)/.test(v)||/^https:\/\//i.test(v)) ? v : null;
+  const safeLink=(v)=>typeof v==='string' && (/^https:\/\//i.test(v)||/^#[a-z0-9-]+$/i.test(v)) ? v : null;
+  async function load(filename,render){
+    try{const response=await fetch(filename,{cache:'no-cache'});if(!response.ok)throw Error(response.status);const data=await response.json();if(!Array.isArray(data))throw Error('Expected list');render(data);}
+    catch(e){console.warn('V29: retaining original section for',filename,e);}
+  }
+  function people(items){
+    const area=document.querySelector('#members .members');if(!area)return;
+    const fragment=document.createDocumentFragment();
+    for(const row of items){if(!row?.name||!imagePath(row.image))continue;
+      const card=make('article','person'), portrait=make('div','portrait'),img=make('img');
+      img.src=imagePath(row.image);img.alt=`Portrait of ${row.name}`;img.loading='lazy';img.decoding='async';
+      portrait.append(img);card.append(portrait,make('h3','',row.name),make('div','role',row.role||''),make('p','',row.description||''));fragment.append(card);
+    }
+    if(fragment.childElementCount || items.length===0)area.replaceChildren(fragment);
+  }
+  function photos(items){
+    const archive=document.querySelector('#gallery .gallery-archive');if(!archive)return;
+    const fragment=document.createDocumentFragment();
+    for(const row of items){
+      if(!row?.title||!imagePath(row.image))continue;
+      const category=['methods','instruments','visits'].includes(row.category)?row.category:'visits';
+      const figure=make('figure','gallery-photo-card'),button=make('button','gallery-open'),img=make('img');
+      figure.dataset.galleryTopic=category;
+      button.type='button';button.setAttribute('aria-label','Open photograph: '+row.title);
+      img.src=imagePath(row.image);img.alt=row.alt||row.title;img.loading='lazy';img.decoding='async';
+      button.append(img);const caption=make('figcaption');
+      caption.append(make('span','photo-category',row.label||category.toUpperCase()),make('strong','',row.title),make('small','',row.description||''));
+      figure.append(button,caption);fragment.append(figure);
+    }
+    if(fragment.childElementCount || items.length===0){archive.replaceChildren(fragment);window.dispatchEvent(new Event('researchGalleryChanged'));}
+  }
+  function highlights(items){
+    const grid=document.querySelector('#highlights .highlights-grid');if(!grid)return;
+    const fragment=document.createDocumentFragment();
+    for(const row of items){if(!row?.title)continue;
+      const article=make('article','highlight-item'),meta=make('div','highlight-meta');
+      meta.append(make('span','',row.year||''),make('span','',row.category||''));
+      article.append(meta,make('h3','',row.title),make('p','',row.description||''));
+      const link=safeLink(row.linkUrl);
+      if(link){const a=make('a','',(row.linkText||'Read more').replace(/\s*↗\s*$/,'')+' ↗');a.href=link;if(link.startsWith('https:')){a.target='_blank';a.rel='noopener noreferrer';}article.append(a);}
+      fragment.append(article);
+    }
+    if(fragment.childElementCount||items.length===0)grid.replaceChildren(fragment);
+  }
+  load('members.json',people);
+  load('gallery.json',photos);
+  load('news.json',highlights);
+})();
+</script>
 <script>document.getElementById('year').textContent=new Date().getFullYear();const menu=document.getElementById('menu'),nav=document.getElementById('navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));// Send inquiries through a real form backend. Native POST remains available without JavaScript.
 // V26: native HTML POST is intentional. Do not intercept submit with fetch.
 // FormSubmit shows its own activation/validation result and emails after recipient confirmation.
@@ -358,9 +412,10 @@ publicationFilterButtons.forEach(button=>button.addEventListener('click',()=>{
  publicationCount.textContent=`Showing ${shown} selected publication${shown===1?'':'s'}`;
 }));
 
-// V22: accessible, client-side gallery; photos remain the user-supplied originals.
+// V29: gallery filters and lightbox work with both original and CMS-added photographs.
 (() => {
- const cards=[...document.querySelectorAll('#gallery .gallery-photo-card')];
+ const region=document.querySelector('#gallery');
+ const cards=()=>[...region.querySelectorAll('.gallery-photo-card')];
  const buttons=[...document.querySelectorAll('.gallery-filter')];
  const count=document.getElementById('galleryResults');
  const dialog=document.getElementById('galleryLightbox');
@@ -369,37 +424,43 @@ publicationFilterButtons.forEach(button=>button.addEventListener('click',()=>{
  const caption=document.getElementById('galleryLightboxCaption');
  const kind=document.getElementById('galleryLightboxKind');
  const position=document.getElementById('galleryPosition');
- let visible=cards.slice();let current=0;let opener=null;
+ let visible=cards(); let current=0; let opener=null;
+ const activeFilter=()=>buttons.find(b=>b.classList.contains('is-active'))?.dataset.galleryFilter||'all';
+ const refresh=()=>{
+   const filter=activeFilter();
+   visible=cards().filter(card=>filter==='all'||card.dataset.galleryTopic===filter);
+   cards().forEach(card=>card.hidden=!visible.includes(card));
+   count.textContent=`${visible.length} photograph${visible.length===1?'':'s'}`;
+ };
  const update=()=>{
-  const card=visible[current];if(!card)return;
-  const source=card.querySelector('img');
-  image.src=source.src; image.alt=source.alt;
-  title.textContent=card.querySelector('figcaption strong').textContent;
-  caption.textContent=card.querySelector('figcaption small').textContent;
-  kind.textContent=card.querySelector('.photo-category').textContent;
-  position.textContent=`${current+1} / ${visible.length}`;
+   const card=visible[current]; if(!card)return;
+   const original=card.querySelector('img'); image.src=original.src; image.alt=original.alt;
+   title.textContent=card.querySelector('figcaption strong')?.textContent||'';
+   caption.textContent=card.querySelector('figcaption small')?.textContent||'';
+   kind.textContent=card.querySelector('.photo-category')?.textContent||'';
+   position.textContent=`${current+1} / ${visible.length}`;
  };
  buttons.forEach(button=>button.addEventListener('click',()=>{
-  const filter=button.dataset.galleryFilter;
-  buttons.forEach(b=>{const active=b===button;b.classList.toggle('is-active',active);b.setAttribute('aria-pressed',String(active));});
-  visible=cards.filter(card=>filter==='all'||card.dataset.galleryTopic===filter);
-  cards.forEach(card=>card.hidden=!visible.includes(card));
-  count.textContent=`${visible.length} photograph${visible.length===1?'':'s'}`;
+   buttons.forEach(b=>{const active=b===button;b.classList.toggle('is-active',active);b.setAttribute('aria-pressed',String(active));});
+   refresh();
  }));
- cards.forEach(card=>card.querySelector('.gallery-open').addEventListener('click',event=>{
-  opener=event.currentTarget;
-  visible=cards.filter(c=>!c.hidden);
-  current=visible.indexOf(card);update();
-  if(typeof dialog.showModal==='function')dialog.showModal();
- }));
- const close=()=>{dialog.close(); if(opener)opener.focus();};
+ region.addEventListener('click',event=>{
+   const trigger=event.target.closest('.gallery-open');
+   if(!trigger||!region.contains(trigger))return;
+   opener=trigger;refresh();current=visible.indexOf(trigger.closest('.gallery-photo-card'));
+   if(current<0)return;update();if(typeof dialog.showModal==='function')dialog.showModal();
+ });
+ const close=()=>{if(dialog.open)dialog.close();if(opener?.isConnected)opener.focus();};
  document.getElementById('galleryClose').addEventListener('click',close);
- document.getElementById('galleryPrev').addEventListener('click',()=>{current=(current+visible.length-1)%visible.length;update();});
- document.getElementById('galleryNext').addEventListener('click',()=>{current=(current+1)%visible.length;update();});
+ document.getElementById('galleryPrev').addEventListener('click',()=>{if(!visible.length)return;current=(current+visible.length-1)%visible.length;update();});
+ document.getElementById('galleryNext').addEventListener('click',()=>{if(!visible.length)return;current=(current+1)%visible.length;update();});
  dialog.addEventListener('click',event=>{if(event.target===dialog)close();});
  dialog.addEventListener('keydown',event=>{
-  if(event.key==='ArrowLeft'){current=(current+visible.length-1)%visible.length;update();}
-  if(event.key==='ArrowRight'){current=(current+1)%visible.length;update();}
+   if(!visible.length)return;
+   if(event.key==='ArrowLeft'){current=(current+visible.length-1)%visible.length;update();}
+   if(event.key==='ArrowRight'){current=(current+1)%visible.length;update();}
  });
+ window.addEventListener('researchGalleryChanged',()=>{refresh();});
+ refresh();
 })();
 </script></body></html>

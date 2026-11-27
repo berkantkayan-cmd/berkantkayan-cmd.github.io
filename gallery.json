@@ -1,0 +1,66 @@
+[
+  {
+    "category": "methods",
+    "label": "01 / LABORATORY",
+    "title": "Soxhlet extraction apparatus",
+    "description": "Glass extraction assemblies in the laboratory.",
+    "alt": "Soxhlet extraction apparatus — original research group photograph",
+    "image": "/media/gallery-01.jpg"
+  },
+  {
+    "category": "instruments",
+    "label": "02 / INSTRUMENTATION",
+    "title": "Analytical instrumentation",
+    "description": "Chromatography and experimental laboratory equipment.",
+    "alt": "Analytical instrumentation — original research group photograph",
+    "image": "/media/gallery-02.jpg"
+  },
+  {
+    "category": "methods",
+    "label": "03 / LABORATORY",
+    "title": "Distillation and laboratory setup",
+    "description": "Glassware and an experimental reaction setup.",
+    "alt": "Distillation and laboratory setup — original research group photograph",
+    "image": "/media/gallery-03.jpg"
+  },
+  {
+    "category": "visits",
+    "label": "04 / RESEARCH VISIT",
+    "title": "Prof. Yu Yang — East Carolina University",
+    "description": "Prof. Yu “Frank” Yang, East Carolina University, USA.",
+    "alt": "Prof. Yu Yang — East Carolina University",
+    "image": "/media/gallery-04.jpg"
+  },
+  {
+    "category": "visits",
+    "label": "05 / RESEARCH VISIT",
+    "title": "Prof. Mehmet A. Oturan and Dr. Nihal Oturan",
+    "description": "Université de Marne-la-Vallée (now Université Gustave Eiffel), France.",
+    "alt": "Prof. Mehmet A. Oturan and Dr. Nihal Oturan",
+    "image": "/media/gallery-05.jpg"
+  },
+  {
+    "category": "visits",
+    "label": "06 / INTERNATIONAL EXCHANGE",
+    "title": "Prof. Fleming Martínez Rodríguez",
+    "description": "Universidad Nacional de Colombia, Bogotá, Colombia.",
+    "alt": "Prof. Fleming Martínez Rodríguez",
+    "image": "/media/gallery-06.jpg"
+  },
+  {
+    "category": "visits",
+    "label": "08 / INTERNATIONAL EXCHANGE",
+    "title": "Academic visit — Bogotá, Colombia",
+    "description": "Research group photograph from an academic visit in Bogotá, Colombia.",
+    "alt": "Academic visit — Bogotá, Colombia",
+    "image": "/media/gallery-07.jpg"
+  },
+  {
+    "category": "visits",
+    "label": "09 / RESEARCH VISIT",
+    "title": "Prof. Dimitrios Kalderis",
+    "description": "Hellenic Mediterranean University, Greece — academic collaboration.",
+    "alt": "Prof. Dimitrios Kalderis",
+    "image": "/media/gallery-08.jpg"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Prof. Dr. Berkant Kayan",
+    "role": "Principal Investigator",
+    "description": "Group Leader · Aksaray University",
+    "image": "/media/member-1.jpg"
+  },
+  {
+    "name": "Dr. Sema Akay",
+    "role": "Researcher",
+    "description": "Research group member",
+    "image": "/media/member-2.jpg"
+  },
+  {
+    "name": "Ceren Tekerbaş",
+    "role": "MSc Student",
+    "description": "Graduate researcher",
+    "image": "/media/member-3.jpg"
+  },
+  {
+    "name": "Khalid Hussain",
+    "role": "Erasmus Visiting Student",
+    "description": "Visiting group member",
+    "image": "/media/member-4.jpg"
+  }
+]
